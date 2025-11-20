@@ -20,7 +20,7 @@ public class StickyPlatform : MonoBehaviour
         {
             collision.gameObject.transform.SetParent(null);
         }
-    }
+    }                                               
 
 
 }

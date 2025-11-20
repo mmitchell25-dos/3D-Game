@@ -21,25 +21,66 @@ public class PlayerMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        niko.linearVelocity = new Vector3(horizontalInput * 5f, niko.linearVelocity.y, verticalInput * 5f);
+        niko.linearVelocity = new Vector3(horizontalInput * movementSpeed, niko.linearVelocity.y, verticalInput * movementSpeed);
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             niko.linearVelocity = new Vector3(niko.linearVelocity.x, jumpForce, niko.linearVelocity.z);
         }
 
+    }
+
+
+    void Jump()
+    {
+        Jump();
+    }
 
 
 
 
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy Head"))
+        {
+            Destroy(collision.transform.parent.gameObject);
+        }
 
     }
 
 
     bool IsGrounded()
     {
-       return Physics.CheckSphere(groundCheck.position, .1f, ground);
+        return Physics.CheckSphere(groundCheck.position, .1f, ground);
     }
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
 }
 
 
