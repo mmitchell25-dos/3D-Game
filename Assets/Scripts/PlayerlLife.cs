@@ -11,10 +11,7 @@ public class PlayerlLife : MonoBehaviour
         {
             Die();
         }
-
     }
-
-
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -25,23 +22,49 @@ public class PlayerlLife : MonoBehaviour
             GetComponent<PlayerMovement>().enabled = false;
             Die();
         }
-
-
     }
 
     void Die()
     {
-        Reloadlevel();
         Invoke(nameof(Reloadlevel), 1.3f);
-        
+        dead = true;
+
     }
-
-
 
     void Reloadlevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
